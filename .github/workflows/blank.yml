@@ -13,5 +13,6 @@ jobs:
 
     - name: Run tests
       run: |
-        # Add your test commands here
+        echo "hello 👋 world lets start develop roms"
+        pwd
 
