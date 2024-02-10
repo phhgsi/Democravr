@@ -1,10 +1,18 @@
-    - name: "Trigger jenkins job"
-      uses: GoldenspearLLC/build-jenkins-job@master
-      with:
-        jenkins-url: ${{ secrets.JENKINS_URL }}
-        jenkins-token: ${{ secrets.JENKINS_TOKEN }}
-        user: "jenkins-username"
-        job-path: "job/folder_name/job/job_name"
-        job-params: "{'param1': 'value1', 'param2': 'value2'}"
-    - name: Get job status
-      run: echo "Job status is ${{ steps.job-build.outputs.job_status }}"
+name: Self-Hosted Runner Test
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: self-hosted
+    container: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run tests
+      run: |
+        # Add your test commands here
+        echo "print heloo"
+
